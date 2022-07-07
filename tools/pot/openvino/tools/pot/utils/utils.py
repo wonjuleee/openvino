@@ -10,7 +10,7 @@ def create_tmp_dir(parent_dir=tempfile.gettempdir()):
     :param parent_dir: directory in which temporary directory is created
     :return: TemporaryDirectory object
     """
-    parent_dir = tempfile.TemporaryDirectory(dir=parent_dir)
+    parent_dir = tempfile.TemporaryDirectory(dir=parent_dir, ignore_cleanup_errors=True)
     if not os.path.exists(parent_dir.name):
         try:
             os.makedirs(parent_dir.name)
